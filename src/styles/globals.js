@@ -1,27 +1,11 @@
 import { createGlobalStyle } from "styled-components";
+import Variables from "../theme/Variables";
 
 const GlobalStyle = createGlobalStyle`
   * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-:root {
-  --white: #fff;
-
-  --gray-50: #f7f8fa;
-  --gray-100: #e6e8eb;
-  --gray-200: #afb2b1;
-  --gray-500: #808080;
-  --gray-800: #494d4b;
-
-  --green-500: #04d361;
-
-  --purple-300: #9f75ff;
-  --purple-400: #9164fa;
-  --purple-500: #8257e5;
-  --purple-800: #6f48c9;
 }
 
 @media (max-width: 1080px) {
@@ -67,9 +51,14 @@ h2 {
   font-size: 1.5rem;
 }
 
+ul, li, a {
+  text-decoration: none
+}
+
 button {
   cursor: pointer;
 }
+  ${Variables}
 `;
 
 export default GlobalStyle;

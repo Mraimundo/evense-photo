@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { lighten } from "polished";
 import styled from "styled-components";
+import { device, screenSize } from "../../components/Grid/breakpoints";
 
 export default function NavLink({ title, path, includes = false }) {
   const router = useRouter();
@@ -15,7 +16,7 @@ export default function NavLink({ title, path, includes = false }) {
 
   const isActive = verifyIfIsActive();
   return (
-    <S.NavLinkContainer isActive={isActive}>
+    <S.NavLinkContainer>
       <Link legacyBehavior href={path}>
         <a id="link">{title}</a>
       </Link>
@@ -24,18 +25,13 @@ export default function NavLink({ title, path, includes = false }) {
 }
 
 const S = {
-  NavLinkContainer: styled.li`
+  NavLinkContainer: styled.div`
     a {
       text-transform: uppercase;
-      color: ${(props) =>
-        props.isActive ? props.theme.primary : props.theme.textHighlight};
-      transition: 0.5s;
-
-      &:hover {
-        color: ${(props) =>
-          props.isActive
-            ? lighten(0.2, props.theme.primary)
-            : lighten(0.2, props.theme.textHighlight)};
+      font-size: 24px;
+      color: red;
+      &#link:hover {
+        color: blueviolet;
       }
     }
   `,
